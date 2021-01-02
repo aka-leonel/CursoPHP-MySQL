@@ -1,6 +1,6 @@
 <?php
 function pedirDatos(){
-    $nombre = "Juan";
+    $nombre = "JuanAriel";
     echo $nombre;
 }
 ?>
