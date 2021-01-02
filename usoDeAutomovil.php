@@ -8,21 +8,18 @@
 <?php 
     include 'automovil.php';
     $volkswagen = new automovil();
-    $volkswagen->encenderMotor();
+    //$volkswagen->encenderMotor();
     //$volkswagen->color="Negro a rayas";
-    $volkswagen->establecerColor("rouge & noir", "volkswagen");
-    echo "el color es: " . $volkswagen->color ."<br>";
+    //$volkswagen->establecerColor("rouge & noir", "volkswagen");
+   // echo "el color es: " . $volkswagen->color ."<br>";
     
     $yamaha = new motocicleta();
-    $yamaha->encenderMotor();
-    $yamaha->ruedas=8;//no deberia poderse
-    // NO SE PUEDE (private) $volkswagen->ruedas=3;
-    //echo "ruedas de VW: ". $volkswagen->ruedas . "<br>";
-    echo "ruenas de yamaha: " . $yamaha->ruedas . "<br>";
-    //$yamaha->arrancar();
-    //echo "cantidad de ruedas de la yamaha: " . $yamaha->ruedas . "<br>";
     
+    echo "Las ruedas del VW : " . $volkswagen->get_ruedas() . "<br>";
+    echo "El motor del VW es de " . $volkswagen->get_motor() . " cc <br><br>";
     
+    echo  "las ruedas de la Yahama: " . $yamaha->get_ruedas() . "<br>";
+    echo "la yamaha tiene un motor de: " . $yamaha->get_motor() . "cc <br><br>";
     
 ?>
 </body>
