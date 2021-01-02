@@ -2,7 +2,7 @@
 class automovil{
     var $color;
     var $motor;
-    var $ruedas;
+    private $ruedas;
     
     function __construct() {
         $this->color="colorDefectoAuto";
@@ -20,6 +20,7 @@ class automovil{
 }
 
 class motocicleta extends automovil{
+    //private ruedas;
     
     function __construct() {
         $this->color="colorDefectoMoto";

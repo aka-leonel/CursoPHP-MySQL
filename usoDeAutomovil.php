@@ -15,6 +15,10 @@
     
     $yamaha = new motocicleta();
     $yamaha->encenderMotor();
+    $yamaha->ruedas=8;//no deberia poderse
+    // NO SE PUEDE (private) $volkswagen->ruedas=3;
+    //echo "ruedas de VW: ". $volkswagen->ruedas . "<br>";
+    echo "ruenas de yamaha: " . $yamaha->ruedas . "<br>";
     //$yamaha->arrancar();
     //echo "cantidad de ruedas de la yamaha: " . $yamaha->ruedas . "<br>";
     
