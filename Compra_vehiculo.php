@@ -5,7 +5,7 @@ class Compra_vehiculo{
     
     private $precio_base;
  
-    static $ayuda=4500;
+    private static $ayuda=0;
     
     
     function __construct($gama){
@@ -30,7 +30,13 @@ class Compra_vehiculo{
         
     }// fin constructor
     
-    
+    static function aplicarDescuento(){
+        
+        if (date("m-d-y")<"05-01-2021") {
+            self::$ayuda=4500;
+        }
+        
+    }
     
     
     function climatizador(){

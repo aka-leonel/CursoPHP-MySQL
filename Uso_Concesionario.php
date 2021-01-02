@@ -10,10 +10,13 @@
 <?php
 
 	include 'Compra_vehiculo.php';
-
+    //Compra_vehiculo::$ayuda=19000;
+	Compra_vehiculo::aplicarDescuento();
+    //HACKEO!
 	$compra_antonio=new Compra_vehiculo("compacto");
-	//$compra_antonio->climatizador();
-	//$compra_antonio->tapiceria_cuero("blanco");
+	//$compra_antonio->aplicarDescuento();
+	$compra_antonio->climatizador();
+	$compra_antonio->tapiceria_cuero("blanco");
 	echo "La compra de antonio fue: $" . $compra_antonio->precio_final() . " <br>";
 	
 	
