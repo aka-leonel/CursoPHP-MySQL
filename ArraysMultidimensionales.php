@@ -20,6 +20,7 @@ $alimentos=array("fruta"=>array("tropical"=>"kiwi",
    // echo $alimentos["leche"]["vegetal"];              
 
     foreach ($alimentos as $tipo) {
+        //forma obsoleta
         //echo "$categoria:<br>";
        // while(list($categ, $valor)=each($alim)){
        //echo "$categ=$valor <br>";
