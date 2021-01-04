@@ -5,5 +5,5 @@ $db_host="localhost";
 $db_namebbdd="pruebas";
 $db_user="root";
 $db_password="";
-
 ?>
+

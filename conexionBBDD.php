@@ -12,11 +12,11 @@
 </head>
 <body>
 <?php 
-    require 'datos_coneccionBBDD.php';
-    //guardo mi consulta en una vvariable
-    
-    
-   
+$db_host="localhost";
+//nombre de la BBDD- Aun no se la extension del archivo
+$db_namebbdd="pruebas";
+$db_user="root";
+$db_password="";
     $conexion=mysqli_connect($db_host, $db_user, $db_password);
     
     
