@@ -1,19 +1,22 @@
 <!doctype html>
 <html>
 <head>
+<style type="text/css">
+    table{
+        width:50%;
+        border:1px dotted #FF0000;
+        margin:auto;
+</style>
 <meta charset="utf-8">
 <title>Video 36: Conectando la web con la BBDD</title>
 </head>
 <body>
 <?php 
-    //ubicacion de la BBDD, en este caso es LOCAL
-    $db_host="localhost";
-    
-    //nombre de la BBDD- Aun no se la extension del archivo 
-    $db_namebbdd="pruebas";
-    $db_user="root";
-    $db_password="";
+    require 'datos_coneccionBBDD.php';
     //guardo mi consulta en una vvariable
+    
+    
+   
     $conexion=mysqli_connect($db_host, $db_user, $db_password);
     
     
@@ -27,15 +30,22 @@
     //instruccion para reconocer caracteres latinos
     mysqli_set_charset($conexion, "utf8");
     
-    $query="SELECT * FROM DATOSPERSONALES";
+    $query="SELECT * FROM articulos WHERE pais='Japon'";
     //luego, ejecuto mi consulta
     $resultados=mysqli_query($conexion, $query);
     
-        
+        //horrible la tabla :)
     while(($fila=mysqli_fetch_row($resultados))==TRUE){
-        echo $fila[0]. "  ";
-        echo $fila[1]. "  ";
-        echo $fila[2]. "  " . "<br>";
+       // echo "<table width='50%' align='center' border='1'><tr><td>";
+        echo "<table><tr><td>";
+        echo $fila[0]. "</td><td>";
+        echo $fila[1]. "</td><td>";
+        echo $fila[2]. "</td><td>";
+        echo $fila[3]. "</td><td>";
+        echo $fila[4]. "</td></tr></table>  " . "<br>" . "<br>";
+        //echo $fila[5]. "  " . "<br>";
+        //echo $fila[6]. "  " . "<br>";
+        
     }
     
     
