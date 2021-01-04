@@ -1,0 +1,77 @@
+[33mcommit f3585df68c0ad5b78b84b70aedf755c7c9630e75[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Mon Jan 4 21:34:52 2021 +0100
+
+    V38, Importacion de tablas MySQL, Exportacion, Consultas con filtros, problemas con tildes, espacios y caracteres especiales
+
+[33mcommit 49fc52b428662d4f36e5c0cb80a77da49c7775ec[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Mon Jan 4 20:08:24 2021 +0100
+
+    V37, Obteniendo registros de la BBDD, funciones mysqli_connect_errno(). mysqli_select_db(), mysqli_set_charset(), mysqli_close()
+
+[33mcommit 3e64cf9280ece762141efaae4f42339e8d6d42f0[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Mon Jan 4 15:29:47 2021 +0100
+
+    V36, Conexion entre pagina y BBDD: funciones mysqli_connect mysqli_quey & mysqli_fetch_row
+
+[33mcommit b5a4aa39e37751a0a44f98ee38a7c442923a84b9[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Sun Jan 3 01:52:25 2021 +0100
+
+    V32m Arrays III: Multidimensionales, funcion var_dump()
+
+[33mcommit 8e81c32e91b2f74068cef7c6787d7ab5b20d2803[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Sun Jan 3 01:05:37 2021 +0100
+
+    V31, Arrays II: is_arrays(); foreach(); operador =>; sort();
+
+[33mcommit 322f9f5d23301fb0b022268e742799e0deb06fd5[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Sat Jan 2 23:57:06 2021 +0100
+
+    V30, Arrays 1
+
+[33mcommit d0989e3134fcf06796b92c55738bf0302ab15649[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Sat Jan 2 23:39:00 2021 +0100
+
+    V29, POO VIII, Variables y metodos estaticos II
+
+[33mcommit 683aba3c6e53ae7c668e869b459fea65b779cf6c[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Sat Jan 2 23:17:19 2021 +0100
+
+    V28, POO VII, private, static, public
+
+[33mcommit 9c47334650a7fb84b1ef2ac71f2eb6c65c2a7f0f[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Sat Jan 2 18:48:37 2021 +0100
+
+    V27, POO VI, modificador protected, getters y setters
+
+[33mcommit 9334187d6c52cd2b0c5aa5270e21aaa3168e2460[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Sat Jan 2 18:27:56 2021 +0100
+
+    V26, POO V, encapsulamientos: public, private
+
+[33mcommit 97f0f0b48559682a5b4affd01fa988a16ba96767[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Sat Jan 2 18:02:13 2021 +0100
+
+    video 25: POO IV - Herencia, extends, parent
+
+[33mcommit 15fc9f6043f051e24ac3b49ba469065c768bc4e6[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Sat Jan 2 16:23:44 2021 +0100
+
+    segundo commit, test
+
+[33mcommit 88d33922bf68f856359ed4a1b170176b0d18b7b6[m
+Author: Leonel Godoy <godoyutn@gmail.com>
+Date:   Sat Jan 2 16:15:39 2021 +0100
+
+    primer commit del curso de PHP

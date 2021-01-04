@@ -35,18 +35,29 @@
     $resultados=mysqli_query($conexion, $query);
     
         //horrible la tabla :)
-    while(($fila=mysqli_fetch_row($resultados))==TRUE){
+       
+    //MYSQLI_ASSOC está obsoleta en PHP7
+    /* 
+    while(($fila=mysqli_fetch_array($resultados, MYSQLI_ASSOC))==TRUE){
        // echo "<table width='50%' align='center' border='1'><tr><td>";
         echo "<table><tr><td>";
-        echo $fila[0]. "</td><td>";
-        echo $fila[1]. "</td><td>";
-        echo $fila[2]. "</td><td>";
-        echo $fila[3]. "</td><td>";
-        echo $fila[4]. "</td></tr></table>  " . "<br>" . "<br>";
+        echo $fila['NOMBRE ARTiCULO']. "</td><td>";
+        
+        echo $fila['PaiS']. "</td><td>";
+        
+        echo $fila['PRECIO']. "</td></tr></table>  " . "<br>" . "<br>";
         //echo $fila[5]. "  " . "<br>";
         //echo $fila[6]. "  " . "<br>";
         
     }
+    */
+    while ($fila = mysqli_fetch_array($resultados)) {
+        
+        echo $fila['NOMBRE ARTiCULO']." ";
+        echo $fila['PaiS']." ";
+        echo $fila['PRECIO']." <br>";
+
+}
     
     
     //-------------cierro la conexion
