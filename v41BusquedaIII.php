@@ -13,27 +13,29 @@ function ejecuta_consulta($labusqueda) {
     $db_user="root";
     $db_pass="";
     $db_name="minegocio";
-    //establezco conexion
+    //1 establezco conexion
     $conexion=mysqli_connect($db_host,$db_user,$db_pass,$db_name);
-    //check conexion
+    //1.1 check conexion
     if(mysqli_connect_errno()){
         echo "Fallo al conectar BBDD";
         exit();
     }
-    
+    //1.2 set charset
     mysqli_set_charset($conexion, "utf8");
     //guardo mi consulta string
     $consulta="SELECT * FROM ARTICULOS WHERE NOMBREARTICULO LIKE '%$labusqueda%'";
     
     $resultado=mysqli_query($conexion, $consulta);
     
-    //muestro
+    //4 muestro array asociativo
     if($resultado){
         while($fila=mysqli_fetch_row($resultado)){
             echo "$fila[0] $fila[1] $fila[2] $fila[3] $fila[4] <br>";
         }
+        //5 libero array
         mysqli_free_result($resultado);
     }
+    //6 cierro conexion
     mysqli_close($conexion);
     
 }
