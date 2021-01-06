@@ -419,8 +419,28 @@ VIDEO 41
 Formulario de busqueda y resultados en la misma pagina
 
 ver archivos BusquedaPorProcedimiento.php y BusquedaEstiloPOO.php
+-----------------------------------------------------
+
+VIDEO 42 
+*Como insertar registros en BBDD MySQL
+INSERT INTO TABLE (CAMPO1, CAMPO2, etc) VALUES (VALOR1, VALOR2, etc);
 
 
+----------------------------------------------------------------
+VIDEO 43
+Insertado registros en BBDD MySQL II
+
+----------------------------------------------------------------
+VIDEO 44
+Eliminando registros en BBDD MySQL 
+
+----------------------------------------------------------------
+VIDEO45
+Actualizando resistros en BBDD MYSQL
+UPDATE TABLE SET CAMPO=VALOR WHERE CAMPO=CRITERIO;
+******
+CRUD: Create, Read, Update, Delete
+--------------------------------------------------
 
 
 
