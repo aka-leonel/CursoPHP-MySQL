@@ -1,0 +1,390 @@
+VIDEO 30 -Arrays I
+//array indexado
+$semana=array["lunes", "martes", "miercoles"];
+
+//array ASOCIATIVO
+$datos=arrayd("Nombre"=>"Juan", "Edad"=>26);
+echo $datos["Nombre"] . "<br>";
+
+----------------------------------------------------------
+
+VIDEO 31, ARRAYS II
+//verificar si es o no un array
+if( is_array($datos)) { 
+	echo "es un array;
+}
+
+
+//recorrer un array ASOCIATIVO
+foreach($datos as $campo=>$valor){
+	echo "A $campo le corresponde $valor <br>;
+}
+
+//recorrer un array INDEXADO
+$semana=array["lunes", "martes", "miercoles"];
+for ($i=0; $i<count($semana); $i++){
+	echo $semana[$i] . "<br>;
+}
+ 
+
+//añadir elementos a un array
+//a un array indexado solo no indicar indice
+//automaticamente se agrega al final del array
+
+//en un array asociativo
+$datos=arrayd("Nombre"=>"Juan", "Edad"=>26);
+$datos["Pais"]="España";
+
+
+//ordenar un array
+$semana=array["lunes", "martes", "miercoles", "jueves"];
+sort($semana);
+for($i=0; $i<count($semana); $i++){
+	echo $semana . "<br>;
+}
+//PRINTS jueves lunes martes miercoles
+
+
+-----------------------------------------------------------
+
+VIDEO 32 - Arrays III Arrays multidimensionales
+//array asociativo de una dimension
+$alimentos=array ("fruta","leche","carne");
+
+//array asociativo multidimensional
+// operador flecha =>
+$alimentos=array ("fruta"=>array("tropical"=>"kiwi",
+				 "citrico"=>"naranja",
+				 "otros"=>"manzana"),
+		  "leche"=>array("vegetal"=>"de coco",
+				 "animal"=>"de vaca"),
+		  "carne"=>array("vacuna"=>"lomo",
+				 "porcino"=>"tocino") );
+//imprimir 'tocino'
+echo $alimentos["carne"]["porcino"];
+
+//recorrer el array
+foreach($alimentos as $clave_alim=>$alim){
+	echo "$clave_alim:<br>";
+	while(list($clave,$valor)=each($alim){
+		echo "$clave=$valor<br>";
+	}
+	echo "<br>";
+}
+
+//prints
+fruta:
+tropical=kiwi
+citrico=naranja
+otros=manzana
+//tambien la leche y carne
+
+//hace lo mismo mas o menos
+echo var_dump($alimentos);
+
+//tambien sirve
+foreach ($alimentos as $clave_alim=> $alim) {
+    echo "$clave_alim: <br>"; 
+
+     foreach ($alim as $clave=> $valor) {
+      echo "$clave: $valor <br>"; }
+           }
+
+--------------------------------------------------
+------------- BASES DE DATOS SQL ------------
+---------------------------------------------------
+
+VIDEO 33 BBDD MySQL
+
+para acceder
+myDireccionIP/phpMyAdmin
+USERNAME: "r
+password: ""
+comandos:
+CREATE DATABASE MYDB;
+DROP DATABASE MYDB;
+SHOW DATABASES;//lista las bbdd alojadas
+
+------------------------------------------------------
+
+VIDEO 34 BBDD MySQL
+//comandos;
+CREATE DATABASE USUARIOS;
+USE USUARIOS;
+->database changed
+CREATE TABLE DATOSUSUARIOS (NOMBRE VARCHAR(30), CLAVE VARCHAR(10));
+DESCRIBE DATOSUSUARIOS;
+|Field	|Type	|
+|nombre	|varchar|
+|clave	|varchar|
+DROP TABLE DATOSUSUARIOS;
+-------------------------------------------------------
+
+VIDEO 35 Modificar tablas con SQL
+*Manejo consola SQL PHPMyAdmin
+*Crear y eliminar tablas con SQL
+create table NOMBRETABLA;
+
+*Crear y eliminar campos con SQL
+//elimina el campo fax
+ALTER TABLE MISCLIENTES DROP FAX;
+ALTER TABLE MISCLIENTES ADD COLUMN EDAD INT(2);
+
+*Insertar registros con SQL
+INSERT INTO MISCLIENTES(NOMBRE, EMAIL, TELEFONO) VALUES ("Leonel", "leo93@hotmail.com", 6380465);
+
+//elimina la columna EDAD a una tabla
+ALTER TABLE DATOSPERSONALES DROP EDAD;
+//agrega una columna EDAD a la tabla, columna VACIA
+ALTER TABLE DATOSPERSONALES ADD EDAD ITN(2);
+
+//insertar
+INSERT INTO DATOSPERSONALES (DNI, NOMBRE, APELLIDO, EDAD) VALUES (37123123, "Julio", "Díaz", 23);
+
+----------------------------------------------------------
+
+VIDEO 36 Conectando la web con la BBDD
+*Consultas de seleccion con SQL
+SELECT * FROM MISCLIENTES;
+
+
+
+*Conexion BBDD desde pagina web
+necesitas:
+dir de la BBDD: LOCALHOST/
+nombre de la BBDD: PRUEBAS
+usuario de la BBDD: ROOT
+pass de la BBDD: ""
+
+MODOS DE CONEXION CON BBDD
+*orientado a objetos
+	clase Mysqli
+
+*pro procedimientos
+	funcion mysqli_connect()
+
+
+$db_host="localhost";
+$db_nombre="pruebas;"
+$db_usuario="root";
+$db_pass="";
+//conexion por procedimientos
+$conexion=mysqli_connecto($db_host, $db_usuario, $db_pass, $db_nombre);
+
+//guardo mi consulta como cadena en una variable
+$consulta= "SELECT * FROM DATOSPERSONALES";
+//ejecuto la funcion mysqli_query
+//y guardo resultados
+$resultados=mysqli_query($conexion,$consulta);
+
+$fila=mysqli_fetch_row($resultados);
+
+echo $fila[0];
+
+//IMPORTNTE cerrar la conexxion con la BBDD
+mysqli_close($conexion);
+*************
+<?php 
+    //datos p conexion
+    $db_host= "localhost";
+    $db_name="minegocio";
+    $db_user="root";
+    $db_pass="";
+    //establezco conexion
+    $conexion=mysqli_connect($db_host,$db_user,$db_pass,$db_name);
+    //my query en una string
+    $consulta="SELECT * FROM MISCLIENTES";
+    //hago mi consulta y la guardo en una variable
+    $resultado=mysqli_query($conexion, $consulta);
+    
+    $fila=mysqli_fetch_row($resultado);
+    echo $fila[0];
+    echo $fila[1]."<br>";
+    
+    mysqli_close($conexion);
+    
+?>
+--------------------------------------------
+
+VIDEO 37 Obteniendo registros de la BBDD
+
+Ejemplo #1 Estilo orientado a objetos
+
+<?php
+$mysqli = new mysqli("localhost", "mi_usuario", "mi_contraseña", "world");
+
+/* comprobar la conexión */
+if (mysqli_connect_errno()) {
+    printf("Falló la conexión: %s\n", mysqli_connect_error());
+    exit();
+}
+
+$consulta = "SELECT Name, CountryCode FROM City ORDER by ID DESC LIMIT 50,5";
+
+if ($resultado = $mysqli->query($consulta)) {
+
+    /* obtener el array de objetos */
+    while ($fila = $resultado->fetch_row()) {
+        printf ("%s (%s)\n", $fila[0], $fila[1]);
+    }
+
+    /* liberar el conjunto de resultados */
+    $resultado->close();
+}
+
+/* cerrar la conexión */
+$mysqli->close();
+?>
+Ejemplo #2 Estilo por procedimientos
+
+<?php
+$enlace = mysqli_connect("localhost", "mi_usuario", "mi_contraseña", "world");
+
+/* comprobar la conexión */
+if (mysqli_connect_errno()) {
+    printf("Falló la conexión: %s\n", mysqli_connect_error());
+    exit();
+}
+
+$consulta = "SELECT Name, CountryCode FROM City ORDER by ID DESC LIMIT 50,5";
+
+if ($resultado = mysqli_query($enlace, $consulta)) {
+
+    /* obtener el array asociativo */
+    while ($fila = mysqli_fetch_row($resultado)) {
+        printf ("%s (%s)\n", $fila[0], $fila[1]);
+    }
+
+    /* liberar el conjunto de resultados */
+    mysqli_free_result($resultado);
+}
+
+/* cerrar la conexión */
+mysqli_close($enlace);
+?>
+
+------------------------------------------------
+
+VIDEO 38 Impportación de tablas MySQL
+
+*Compartir daros de conexion a BBDD
+//en un 'conexion_bbdd'
+require 'datos_conexion.php';
+
+//en 'datos_conexion.php':
+<?php 
+    //datos p conexion
+    $db_host= "localhost";
+    $db_name="minegocio";
+    $db_user="root";
+    $db_pass="";
+
+?
+
+
+*Importar tablas a BBDD MySQL
+
+DESDE DOCUMENTO.ODS
+puede haberse pasado de .xls a .ods
+-la primera linea del archivo contiene los nombres de las columanas
+- OJO con tildes, espacios, caracteres especiales.
+
+DESDE INSTRUCION.SQL
+hecha en el bloc de notas, es .sql
+IMPORTANTE: Codificacion utf-8
+-luego en PHPMyAdmin Importar
+
+*Consultas SQL con filtros o criterios
+WHERE
+Ejemplos de querys:
+$consulta="SELECT * FROM articulos WHERE Pais LIKE 'e%'";
+
+$consulta="SELECT * FROM ARTICULOS WHERE PRECIO < 100";
+
+$consulta= "SELECT * FROM `articulos` WHERE `NoMBRE ARTiCULO` LIKE '%aballe%'";
+
+$consulta="SELECT * FROM ARTICULOS WHERE pais = 'china'";
+
+
+------------------------------------------------
+
+VIDEO 39 PAGINA DE BUSQUEDA I
+
+*funcion mysqli_fetch_array()
+*query con comodines en MySQL: % _
+
+<?php  
+    require 'datos_conexion.php';
+    //establezco conexion
+    $conexion=mysqli_connect($db_host,$db_user,$db_pass);
+    
+    //comprobar la conexión con HOST
+    if(mysqli_connect_errno()){
+        echo "Error al conectar con HOST<br>";
+        exit();
+    }
+    //comprobar conexion con BBDD
+    mysqli_select_db($conexion, $db_name) or die ("No se encuentra la BBDD <br>");
+    mysqli_set_charset($conexion, "utf8");
+
+    //guardo query en una string
+    //$consulta="SELECT * FROM articulos WHERE Pais LIKE 'e%'";
+    //$consulta="SELECT * FROM ARTICULOS WHERE PRECIO < 100";
+    //$consulta= "SELECT * FROM `articulos` WHERE `NoMBRE ARTiCULO` LIKE '%aballe%'";
+    $consulta="SELECT * FROM ARTICULOS WHERE Pais LIKE '%i%a%'";
+    //hago mi consulta y la guardo en una variable
+    $resultado=mysqli_query($conexion, $consulta);
+    while ($fila = mysqli_fetch_array($resultado)) { 
+        echo "<table><tr><td>";
+        echo $fila['SECCIoN']."</td><td>";
+        echo $fila['NOMBRE ARTiCULO']."</td><td>";
+        echo $fila['PRECIO']."</td><td>";
+        echo $fila['PaiS']."</td></tr></table>";
+}
+        
+    mysqli_close($conexion);  
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
