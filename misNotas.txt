@@ -207,9 +207,9 @@ mysqli_close($conexion);
 --------------------------------------------
 
 VIDEO 37 Obteniendo registros de la BBDD
-
+*****************************************
 Ejemplo #1 Estilo orientado a objetos
-
+*****************************************
 <?php
 $mysqli = new mysqli("localhost", "mi_usuario", "mi_contraseña", "world");
 
@@ -219,7 +219,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$consulta = "SELECT Name, CountryCode FROM City ORDER by ID DESC LIMIT 50,5";
+$consulta="SELECT * FROM ARTICULOS WHERE NOMBREARTICULO LIKE '%$mibusqueda%'";
 
 if ($resultado = $mysqli->query($consulta)) {
 
@@ -418,6 +418,7 @@ paginaDeBusqueda//
 VIDEO 41
 Formulario de busqueda y resultados en la misma pagina
 
+ver archivos BusquedaPorProcedimiento.php y BusquedaEstiloPOO.php
 
 
 
