@@ -34,13 +34,13 @@
         
     //2 declaro mi query
     
-    $consulta="UPDATE ARTICULOS SET SECCIoN='$secc', NOMBREARTiCULO='$nomb', FECHA='$fech', PaiS='$pais', PRECIO='$prec' WHERE PRECIO == '%$nomb%'";
-    echo "Se ejecuto: <br> UPDATE ARTICULOS  SET SECCIoN='$secc', NOMBREARTiCULO='$nomb', FECHA='$fech', PaiS='$pais', PRECIO='$prec' WHERE NOMBREARTiCULO='$nomb'; <br>";
+    $consulta="UPDATE ARTICULOS SET SECCIoN='$secc', NOMBREARTiCULO='$nomb', FECHA='$fech', PaiS='$pais', PRECIO='$prec' WHERE NOMBREARTiCULO LIKE'%$nomb%'";
+    echo "Se ejecuto: <br> UPDATE ARTICULOS  SET SECCIoN='$secc', NOMBREARTiCULO='$nomb', FECHA='$fech', PaiS='$pais', PRECIO='$prec' WHERE NOMBREARTiCULO like'%$nomb%'; <br>";
     //3 hago query y almaceno array resultado
     $resultado=mysqli_query($conexion, $consulta);
     //mysqli_query($conexion, $consulta);
 
-    if($resultado==false){
+    if(!$resultado){
         echo "Error en la consulta";
     }else{
         echo "<br>Registro guardado<br>";
