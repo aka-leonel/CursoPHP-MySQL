@@ -437,7 +437,10 @@ Eliminando registros en BBDD MySQL
 ----------------------------------------------------------------
 VIDEO45
 Actualizando resistros en BBDD MYSQL
+
 UPDATE TABLE SET CAMPO=VALOR WHERE CAMPO=CRITERIO;
+Ejemplo:
+UPDATE `articulos` SET `NOMBREARTiCULO`="Martillo Carpintero" WHERE `NOMBREARTiCULO` = "Martillo";
 ******
 CRUD: Create, Read, Update, Delete
 --------------------------------------------------
