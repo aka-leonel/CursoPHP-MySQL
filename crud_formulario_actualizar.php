@@ -7,7 +7,7 @@
 <body>
 
     <form action="crud_pag_resultados_actualizacion.php" method="get">
-    <label>Buscar: <input type="text" name="buscar"></label>
+    <label>Buscar Articulo: <input type="text" name="buscar"></label>
 	<input type="submit" name="enviando" value="Dale!">
 	</form>
 </body>

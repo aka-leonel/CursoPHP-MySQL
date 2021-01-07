@@ -8,6 +8,7 @@
 
 <?php 
 //recupero con $_GET la informacion de formularioRegistro.php
+    $codigo=$_GET["codigo_art"];
     $secc=$_GET["secc_art"];
     $nomb=$_GET["nomb_art"];
     $fech=$_GET["fech_art"];
@@ -34,8 +35,8 @@
         
     //2 declaro mi query
     
-    $consulta="UPDATE ARTICULOS SET SECCIoN='$secc', NOMBREARTiCULO='$nomb', FECHA='$fech', PaiS='$pais', PRECIO='$prec' WHERE NOMBREARTiCULO LIKE'%$nomb%'";
-    echo "Se ejecuto: <br> UPDATE ARTICULOS  SET SECCIoN='$secc', NOMBREARTiCULO='$nomb', FECHA='$fech', PaiS='$pais', PRECIO='$prec' WHERE NOMBREARTiCULO like'%$nomb%'; <br>";
+    $consulta="UPDATE ARTICULOS SET SECCION='$secc', NOMBRE='$nomb', FECHA='$fech', PAIS='$pais', PRECIO='$prec' WHERE CODIGO ='$codigo'";
+    //echo "Se ejecuto: <br> UPDATE ARTICULOS  SET SECCIoN='$secc', NOMBREARTiCULO='$nomb', FECHA='$fech', PaiS='$pais', PRECIO='$prec' WHERE NOMBREARTiCULO like'%$nomb%'; <br>";
     //3 hago query y almaceno array resultado
     $resultado=mysqli_query($conexion, $consulta);
     //mysqli_query($conexion, $consulta);
@@ -44,7 +45,7 @@
         echo "Error en la consulta";
     }else{
         echo "<br>Registro guardado<br>";
-        echo "SECCIoN:$secc NOMBREARTiCULO:$nomb FECHA:$fech PaiS:$pais PRECIO:$prec <br>";
+        echo "SECCIoN:$secc NOMBRE:$nomb FECHA:$fech PAIS:$pais PRECIO:$prec <br>";
         
     }
     //6 cierro conexion
