@@ -448,10 +448,53 @@ CRUD: Create, Read, Update, Delete
 VIDEO 46 
 Actualizando resistros en BBDD MYSQL II
 
+-------------------------------------------------	
 
+VIDEO 47 Inyeccion SQL I
+Problema: se podía ver todos los registros introduciendo en el pass: ' or '1'='1
+Sin solucion por el momento.
+--------------------------------------------------	
 
+VIDEO 48 Inyeccion SQL II
+Problema: Se podia hackear pass con: ' or '1'='1 y de ese modo completar la query y eliminar todos los registros de la BBDD
 
+Solucion: Escapando las consultas con mysqli_real_scape_string
 
+--------------------------------------------------
+
+VIDEO 49 
+-Consultas preparadas para envitar inyeccion SQL
+
+1:Crear la sentencia SQL sustituyendo los valore de criterio por '?'
+$consulta= "SELECT * FROM ARTICULOS WHERE PAIS=?";
+
+	
+
+3: Unir parametros a la sentencia sql.
+mysqli_stmt_bidn_param($mysqli_stmt, $tipoDato, $criterio). Retorna true o false.
+
+4: Ejecutar la consulta con
+mysqli_stmt_execute(mysqli_stmt)- return true or false.
+necesita como parametro el objeto mysqli_stmt
+
+5: asociar variables al resultado de la consulta. Esto lo conseguimos con la funcion
+mysqli_stmt_bind_result(mysqli_stmt, $var1, $var2...)- return true or false.
+necesita como parametro el objeto mysqli_stmt y tantas variable como columnas en consulta sql.
+
+6: Lectura de valores con funcion
+mysqli_stmt_fetch
+Parametro es el objeto mysqli_stmt
+
+7: cerrar mysqli_stmt_close($resultado);
+
+---------------------------------------------------
+VIDEO 50:
+Consultas preparadas. Insertar registros en MySQL
+
+---------------------------------------------------
+
+VIDEO 51
+Conexion a BBDD con POO
 
 
 
