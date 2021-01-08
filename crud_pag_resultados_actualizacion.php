@@ -28,7 +28,11 @@
     mysqli_set_charset($conexion, "utf8");
     
   
-    $consulta="SELECT * FROM ARTICULOS WHERE NOMBRE LIKE '%$busqueda%'";
+    //$consulta="SELECT * FROM ARTICULOS WHERE NOMBRE LIKE '%$busqueda%'";
+    $consulta="SELECT * FROM ARTICULOS WHERE NOMBRE = '$busqueda'";
+   
+    
+    echo "Su consulta fue: $consulta <br><br>";
     //hago mi consulta y la guardo en una variable
     $resultado=mysqli_query($conexion, $consulta);
     while ($fila = mysqli_fetch_array($resultado)) {

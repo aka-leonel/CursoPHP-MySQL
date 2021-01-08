@@ -436,7 +436,7 @@ Eliminando registros en BBDD MySQL
 
 ----------------------------------------------------------------
 VIDEO45
-Actualizando resistros en BBDD MYSQL
+Actualizando resistros en BBDD MYSQL I
 
 UPDATE TABLE SET CAMPO=VALOR WHERE CAMPO=CRITERIO;
 Ejemplo:
@@ -445,6 +445,8 @@ UPDATE `articulos` SET `NOMBREARTiCULO`="Martillo Carpintero" WHERE `NOMBREARTiC
 CRUD: Create, Read, Update, Delete
 --------------------------------------------------
 
+VIDEO 46 
+Actualizando resistros en BBDD MYSQL II
 
 
 
