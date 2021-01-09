@@ -12,7 +12,7 @@
     try{
         $base=new PDO('mysql:host=localhost; dbname=pdo_clase53', 'root', '');
         
-        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+       $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
         //echo 'Conexion OK<br>';
         $base->exec("SET CHARACTER SET utf8");
         
@@ -30,7 +30,9 @@
         $resultado->closeCursor();
     
     }catch (Exception $e){
-        die('Error: ' . $e->getMessage());
+        //die('Error: ' . $e->getMessage());
+        //echo "<br>Codigo del error: " . $e->getCode();
+        echo "<br>Linea del error: " . $e->getLine();
         
     }finally {
         $base=null;
