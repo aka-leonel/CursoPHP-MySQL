@@ -8,7 +8,12 @@
 
 <?php 
     $pais=$_GET["buscar"];
-    require 'datos_conexion_clase49.php';
+    //require 'datos_conexion_clase49.php';
+    //datos conexion
+    $db_host="localhost";
+    $db_user_name="root";
+    $db_user_pass="";
+    $db_name="clase49";
     
     $conexion=mysqli_connect($db_host, $db_user_name, $db_user_pass);
     
