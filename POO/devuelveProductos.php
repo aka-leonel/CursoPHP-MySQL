@@ -9,12 +9,31 @@
             
         }
         
-        public function get_productos() {
-            $resultado=$this->conexion_db->query('SELECT * FROM ARTICULOS');
+        public function get_productos($dato) {
             
-            $productos=$resultado->fetch_all(MYSQLI_ASSOC);
+            $sql="SELECT * FROM PRODUCTOS WHERE PAIS = '" . $dato . "'";
             
+            $sentencia=$this->conexion_db->prepare($sql);
+            
+            $sentencia->execute();
+            
+            
+            $resultado=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+            
+            $sentencia->closeCursor();
+            
+            return $resultado;
+            
+            $this->conexion_db=NULL;
+           
+            
+            /*
+            $resultado=$this->conexion_db->query('SELECT * FROM ARTICULOS WHERE PAIS ="'. $dato . '"');           
+            $productos=$resultado->fetch_all(MYSQLI_ASSOC);            
             return $productos;
+            */
+            
+            
         }
     }
 
