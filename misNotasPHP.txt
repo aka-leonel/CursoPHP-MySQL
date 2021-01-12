@@ -855,6 +855,111 @@ De NUEVO 58
 Conexion a BBDD usando POO y PDO
 Folder: conexion POO_PDO
 
+---------------------------
+
+VIDEO 59
+Sistema de Login I
+//file login.php
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Página de Login</title>
+
+<style>
+    
+    h1{text-align:center;
+    }
+    
+    table{
+        width:25%;
+        background-color:#FFC;
+        border: 2px dotted #F00;
+        margin:auto;
+     }
+        
+     .izq{text-align:left;
+     }
+     
+     .der{text-align:right;
+     }
+     
+     td{
+        text-align:center;
+        padding:10px;
+        }        
+
+</style>
+</head>
+<body>
+<h1>INTRODUCE TUS DATOS</h1>
+<form action="comprueba_login.php" method="post">
+<table>
+	<tr>
+	<td class="izq">Usuario: </td>
+	<td class="der"><input type="text" name="user"></td></tr>
+	
+	<tr><td class="izq">Password: </td>
+	<td class="der"><input type="password" name="password"></td></tr>
+				
+	<tr><td colspan="2"><input type="submit" name="enviar" value="Login"></td></tr>
+</table>
+</form>
+</body>
+</html>
+
+//file comprueba_login.php
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Loggeo</title>
+</head>
+<body>
+
+<?php 
+    try {
+        
+        $base= new PDO("mysql:host=localhost; dbname=test", "root", "");
+        
+        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $sql="SELECT * FROM users_pass WHERE USUARIO= :user AND PASS= :password";
+        
+        $resultado=$base->prepare($sql);
+        
+        $user=htmlentities(addslashes($_POST["user"]));
+        
+        $password=htmlentities(addslashes($_POST["password"]));
+        
+        $resultado->bindValue(":user", $user);
+        $resultado->bindValue(":password", $password);
+        
+        $resultado->execute();
+        
+        $numero_registro=$resultado->rowCount();
+        
+        if($numero_registro){
+            
+            echo "<h2>Ingreso correctamente</h2>";
+            
+        }else{
+           header("location:login.php");
+        }
+   
+        
+    } catch (Exception $e) {
+        
+        die("Error: " . $e->getMessage());
+    }
+?>
+
+</body>
+</html>
+
+---------------------------
+
 
 
 
