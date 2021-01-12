@@ -96,7 +96,7 @@ if(!isset($_SESSION["usuario"])){
 
 
 <h2>Contenido de la web</h2>
-<table width="800" border="1">
+<table  border="1">
 	<tr>
 	<td><img src="imagenes/1.jpg" width="300" height="166"></td>
 	<td><img src="imagenes/2.jpg" width="300" height="166"></td>

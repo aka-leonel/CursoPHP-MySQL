@@ -1009,9 +1009,43 @@ FOLDER: sistema_login2
 ---------------------------
 
 VIDEO 63
+Cookies I
 
+//cookie1.php
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+<?php 
+    setcookie("prueba", "Esta es la info en la cookie");
+?>
+</body>
+</html>
+ 
 
+//leer_cookie1.php
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+<?php 
+    if (isset($_COOKIE["prueba"])) {
+        echo $_COOKIE["prueba"];
+    }else{
+        echo "No se encuentra cookie.";
+    }
+?>
+</body>
+</html>
 
+-----------------------------------
+VIDEO 64 COOKIES II
 
 
 
