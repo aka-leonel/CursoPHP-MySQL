@@ -30,7 +30,13 @@
         
         if($numero_registro){
             
-            echo "<h2>Ingreso correctamente</h2>";
+            //echo "<h2>Ingreso correctamente</h2>";
+            
+            session_start();
+            $_SESSION["usuario"]=$_POST["user"];
+            
+            
+            header("Location:usuarios_registrados1.php");
             
         }else{
            header("location:login.php");

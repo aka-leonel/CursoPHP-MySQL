@@ -958,9 +958,20 @@ Sistema de Login I
 </body>
 </html>
 
+
+
 ---------------------------
 
+VIDEO 60
+Systema de login II.
+session_start()
+$_SESSION
+ 
+   inicia o reanuda una sesion         session_start();
 
+guarda en una variable superglobal algo...
+    $_SESSION["usuario"]=$_POST["user"];
+            
 
 
 
