@@ -1002,6 +1002,13 @@ Sistema de Login III. Cierre de sesion
 VIDEO 62
 Sesiones y PHP SELF
 
+*login y validacion en la misma pagina
+* uso de $_SERVER["PHP_SELF"]
+FOLDER: sistema_login2
+
+---------------------------
+
+VIDEO 63
 
 
 
