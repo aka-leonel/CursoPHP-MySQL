@@ -833,7 +833,18 @@ La clase Exception y sus metodos
 -------------------------------------------------------	
 VIDEO 56
 PDO: Insertar y eliminar registros BBDD
+-------------------------------------------------------
 
+VIDEO 57
+Conexio BBDD usando Clases POO
+
+config.php
+conexion.php
+devuelveProductos.php
+index.php
+------------------------------------------------
+VIDEO 58.
+Conexion a BBDD usando clases POO y PDO
 
 
 
