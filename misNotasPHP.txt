@@ -847,7 +847,13 @@ VIDEO 58.
 Conexion a BBDD usando clases POO y PDO
 
 
-
+----------------
+DE NUEVO 57
+Conexion a BBDD usando POO
+----------------
+De NUEVO 58
+Conexion a BBDD usando POO y PDO
+Folder: conexion POO_PDO
 
 
 
