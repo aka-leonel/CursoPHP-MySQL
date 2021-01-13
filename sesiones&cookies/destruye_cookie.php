@@ -4,15 +4,13 @@
 <meta charset="utf-8">
 <title></title>
 </head>
-
 <body>
-
 <?php 
-
-    setcookie("prueba", "Esta es la info en la cookie");
+   
+    setcookie("prueba", "Esta es la info en la cookie", time()-1);
+    
+    
 
 ?>
-
 </body>
-
 </html>

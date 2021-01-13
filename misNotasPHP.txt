@@ -1046,12 +1046,23 @@ Cookies I
 
 -----------------------------------
 VIDEO 64 COOKIES II
+*Parametros de una cookie: durancion y directorio de actuacion
+*Eliminacion de cookie
+
+------------------------------------
+VIDEO 65 
+Cookies iii Practica1
+
+*dar utilidad a la cookie 
+	(guardar preferencia de usuario, ejemplo:guardar idioma)
 
 
+folder: practica 1
 
+---------------------------------
 
-
-
+VIDEO 66
+Cookies IV Practica 2
 
 
 
