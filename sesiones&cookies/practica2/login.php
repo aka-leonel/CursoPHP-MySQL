@@ -1,8 +1,9 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>P�gina de Login</title>
+
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>Página de Login</title>
 
 <style>
     
@@ -35,74 +36,64 @@
 
 <body>
 
-<?php
 
+<?php
+//siempre se declara este false
 $autenticado=FALSE;
 
-if(isset($_POST["enviar"])){
-    
- 
-    try {
-        
-        $base= new PDO("mysql:host=localhost; dbname=test", "root", "");
-        
-        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        $sql="SELECT * FROM users_pass WHERE USUARIO= :user AND PASS= :password";
-        
-        $resultado=$base->prepare($sql);
-        
-        $user=htmlentities(addslashes($_POST["user"]));
-        
+//<!-- si enviaste datos por metodo POST -->
+if(isset($_POST["enviar"])){ 
+    //intentar conecatr a BBDD
+    try {        
+        $base= new PDO("mysql:host=localhost; dbname=test", "root", "");        
+        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);        
+        $sql="SELECT * FROM users_pass WHERE USUARIO= :user AND PASS= :password";        
+        $resultado=$base->prepare($sql);        
+        $user=htmlentities(addslashes($_POST["user"]));        
         $password=htmlentities(addslashes($_POST["password"]));
         
         $resultado->bindValue(":user", $user);
-        $resultado->bindValue(":password", $password);
-        
-        $resultado->execute();
-        
+        $resultado->bindValue(":password", $password);        
+        $resultado->execute();        
         $numero_registro=$resultado->rowCount();
         
-        if($numero_registro){
+        if($numero_registro!=0){//si hubo match
             
-           $autenticado=TRUE;
+           $autenticado=TRUE;        
            
-           if(isset($_POST["recordar"])){
-               
+           if(isset($_POST["recordar"])){//setear cookie para recordar
                setcookie("nombre_usuario", $_POST["user"], time()+86400);
            }
-            
-            session_start();
-            $_SESSION["usuario"]=$_POST["user"];
-                       
-           // header("Location:usuarios_registrados1.php");
-            
-        }else{
-           //header("location:login.php");
+                        
+        }else{               
            echo "Usuario o password incorrecto <br>";
         }
-   
         
-    } catch (Exception $e) {
-        
+    } catch (Exception $e) {        
         die("Error: " . $e->getMessage());
-    }
-    
+    }    
 }
 ?>
+<!-- si NO enviaste datos por metodo POST -->
 
 
-<?php 
-    
+<?php //si no se autentico 
 if($autenticado==FALSE){
-    
-    if(!isset($_COOKIE["nombre_usuario"])){
-        
+    //y si no hay cookie de sesison previa
+    if(!isset($_COOKIE["nombre_usuario"])){        
         include "formulario.php";
     }
 }
 
+if(isset($_COOKIE["nombre_usuario"])){
+    echo "¡Hola " . $_COOKIE["nombre_usuario"] . "!<br>";
+} else if ($autenticado==TRUE) {
+    echo "¡Hola " . $_POST["user"] . "!<br>";
+}
+
 ?>
+
+
 
 
 <h2>Contenido de la web</h2>
@@ -116,6 +107,19 @@ if($autenticado==FALSE){
 	<td><img src="imagenes/4.jpg" width="300" height="166"></td>
 	</tr>
 </table>
+
+<?php 
+
+if($autenticado==true || isset($_COOKIE["nombre_usuario"])){
+    
+    include 'zonaRegistrados.html';
+}
+
+?>
+
+
+
+
 
 
 </body>

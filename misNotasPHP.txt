@@ -1063,6 +1063,19 @@ folder: practica 1
 
 VIDEO 66
 Cookies IV Practica 2
+folder: practica2
+
+---------------------------------
+
+VIDEO 67
+Cookies V, 
+folder:Practica 2
+se pudo agregar la casilla "recordar ususario"
+se crea cookie. puede destruirse con destruit_cookie.php
+
+---------------------------------
+
+VIDEO 68
 
 
 
