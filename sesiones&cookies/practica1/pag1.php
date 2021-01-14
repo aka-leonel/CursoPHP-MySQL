@@ -23,7 +23,7 @@ if(isset($_COOKIE["idioma_seleccionado"])){
 
 ?>
 
-<table width="25%" border="0" align="center">
+<table >
 	<tr>
 	<td colspan="2" align="center"><h1>Elige idioma</h1></td>
 	</tr>

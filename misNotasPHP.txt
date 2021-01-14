@@ -1076,8 +1076,22 @@ se crea cookie. puede destruirse con destruit_cookie.php
 ---------------------------------
 
 VIDEO 68
+Encriptacion de password
 
+Algoritmos de encriptacion:
+----inseguros----
+MD5 ......... md5()
 
+SHA1 ........ sha1()
+
+SHA256....... hash()
+
+--se considera seguro
+Blowfish ....{ crypt() password_hash() }
+
+-------------------------
+
+VIDEO 69
 
 
 
