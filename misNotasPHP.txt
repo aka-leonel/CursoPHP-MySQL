@@ -1092,6 +1092,218 @@ Blowfish ....{ crypt() password_hash() }
 -------------------------
 
 VIDEO 69
+*modificar el coste de pasword_hash()
+*hacer login con hash
 
+pasword_verify(contrasenia, hash);
+
+folder: encriptacion
+files:
+
+//formulario_insertar_usuarios.php
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+
+    <style >
+    
+    table{
+        width:300PX;
+        martin:auto;
+        background-color:#FFC;
+        border:2px solid #F00;
+        padding:5px;
+    }
+    
+    td{
+        text-aling:center;
+    }
+    
+    h1{
+        text-align:center;
+    }    
+    </style>
+     
+</head>
+<body>
+
+<h1>Registrate</h1>
+
+<form action="pagina_insertar_usuarios.php" method="post">
+<table><tr>
+	<td>usuario</td><td><input type="text" name="usu" id="usu"></td></tr>
+	<tr>
+	<td>contrasenia</td><td><input type="password" name="contra" id="contra"></td></tr>
+	
+	<tr><td colspan="2"><input type="submit" name="enviando" value="Enter!">
+	</td></tr>
+</table>
+</form>
+
+
+</body>
+</html>
+
+//pagina_insertar_ususarios.php
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin tÃ­tulo</title>
+</head>
+
+<body>
+
+<?php
+
+	$usuario= $_POST["usu"];
+	$contrasenia= $_POST["contra"];
+    
+	$pass_cifrado=password_hash($contrasenia, PASSWORD_DEFAULT, array("cost"=>12));
+    
+	try{
+
+		$base=new PDO('mysql:host=localhost; dbname=test', 'root', '');
+		
+		$base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
+		$base->exec("SET CHARACTER SET utf8");		
+		
+		
+		$sql="INSERT INTO users_pass (USUARIO, PASS) VALUES (:usu, :contra)";
+		
+		$resultado=$base->prepare($sql);		
+		
+		
+		$resultado->execute(array(":usu"=>$usuario, ":contra"=>$pass_cifrado));		
+		
+		
+		echo "Registro insertado";
+		
+		$resultado->closeCursor();
+
+	}catch(Exception $e){
+		
+		echo "LÃ­nea del error: " . $e->getLine();
+		
+	}finally{
+		
+		$base=null;
+		
+		
+	}
+
+?>
+</body>
+</html>
+
+//login.php
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+
+<style>
+body{  font-family: sans-serif;
+}
+
+h1{text-align: center;    
+}
+
+table{
+    width: 25%;
+    background-color: #FFC;
+    border: 2px dotted #F00;
+    margin: auto;
+}
+
+td{
+    text-align: center;
+    padding: 10px;
+}
+
+.izp{text-align: right;}
+
+.der{text-align: left;}
+
+</style>
+</head>
+
+<body>
+
+<h1>INTRODUCE TUS DATOS</h1>
+
+<form action="comprueba_login.php" method="post">
+
+<table>
+	<tr style="">
+	<td class="izq">
+	Login:</td><td class="der"><input type="text" name="login"></td></tr>
+	<tr><td class="izq">Password:</td><td class="der"><input type="password" name="password"></td></tr>
+	<tr><td colspan="2"><input type="submit" name="enviar" value="LOGIN"></td></tr>
+</table>
+
+</form>
+
+</body>
+</html>
+
+//comprueba_login.php
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+
+<?php 
+try {
+    $login= htmlentities(addslashes($_POST["login"]));
+    $password= htmlentities(addslashes($_POST["password"]));
+    //$login= $_POST["login"];
+    //$password= $_POST["password"];
+    $contador =0;
+   
+    $base = new PDO("mysql:host=localhost; dbname=test", "root", "");
+    $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   
+    $sql= "SELECT * FROM users_pass WHERE USUARIO = :login";
+    $resultado= $base->prepare($sql);
+    $resultado->execute(array(":login"=>$login));
+   
+    while ($registro=$resultado->fetch(PDO::FETCH_ASSOC)) {
+        //echo "Usuario: " . $registro["usuario"] . " Contrseña: " . $registro["pass"] . "<br>";
+       if(password_verify($password, $registro["PASS"]))
+           $contador++;        
+        }
+
+        if($contador>0){
+            echo "usuario registrado. Contador: " . $contador ;
+            
+        }else {
+            echo "usuario no registrado";
+        }
+    $resultado->closeCursor();
+        
+    } catch (Exception $e) {
+        echo "Exception : ". $e;
+    }
+
+?>
+
+
+</body>
+
+</html>
+
+
+
+-----------------------------------------
+VIDEO 70 CRUD I
 
 

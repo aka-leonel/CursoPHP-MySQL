@@ -8,7 +8,7 @@
     
     table{
         width:300PX;
-        martin.auto;
+        martin:auto;
         background-color:#FFC;
         border:2px solid #F00;
         padding:5px;
