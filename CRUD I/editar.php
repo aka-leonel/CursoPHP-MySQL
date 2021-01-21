@@ -18,11 +18,11 @@
 <h1>ACTUALIZAR</h1>
 
 <?php 
+    include 'conexion.php';
     $id = $_GET["id"];
     $nom = $_GET["nom"];
     $ape = $_GET["ape"];
-    $dir = $_GET["dir"];  
-
+    $dir = $_GET["dir"]; 
 ?>
 
 
@@ -30,12 +30,12 @@
 
 <p>&nbsp;</p>
 
-<form name="form1" method="get" action="">
+<form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
 	<table>
 		<tr>
 			<td>id</td>
 			<td><label for="id"></label>
-			<input type="hidden" name="id" id="id"></td>
+			<input type="hidden" name="id" id="id" value="<?php echo $id ?>"></td>
 		</tr>
 		<tr>
 			<td>Nombre</td>
