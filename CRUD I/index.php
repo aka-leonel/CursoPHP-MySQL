@@ -11,7 +11,7 @@
 <body>
 
 <?php 
-    include "conexion.php";
+    include 'conexion.php';
     //$conexion=$base->query("SELECT * FROM datos_usuarios");
     //$registros=$conexion->fetchAll(PDO::FETCH_OBJ);
     //en una linea se hace lo que en las dos comentadas
@@ -32,15 +32,25 @@
     </tr> 
    
 		
+	<?php 
+	foreach ($registros as $persona):?>	
    	<tr>
-      <td> </td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><?php echo $persona->id?></td>
+      <td><?php echo $persona->nombre?></td>
+      <td><?php echo $persona->apellido?></td>
+      <td><?php echo $persona->direccion?></td>
  
       <td class="bot"><input type='button' name='del' id='del' value='Borrar'></td>
       <td class='bot'><input type='button' name='up' id='up' value='Actualizar'></td>
-    </tr>       
+    </tr> 
+    <?php 
+    endforeach;
+    ?>
+    
+    
+    
+    
+          
 	<tr>
 	<td></td>
       <td><input type='text' name='Nom' size='10' class='centrado'></td>
