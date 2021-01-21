@@ -5,13 +5,35 @@
 <title>CRUD</title>
 <link rel="stylesheet" type="text/css" href="hoja.css">
 
+<style>
 
+table{
+    width:50%;
+}
+
+
+</style>
 </head>
 
 <body>
 
 <?php 
-    include 'conexion.php';
+    //lo tipeo xq no conecta:(
+    //include 'conexion.php';
+try {
+    
+    $base= new PDO("mysql:host=localhost; dbname=test", "root", "");
+    
+    $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    $base->exec("SET CHARACTER SET UTF8");
+    
+} catch (Exception $e) {
+    die("Error ".  $e->getMessage() . "<br>");
+    echo "Linea del error: " . $e->getLine() . "<br>";
+    
+}
+    
     //$conexion=$base->query("SELECT * FROM datos_usuarios");
     //$registros=$conexion->fetchAll(PDO::FETCH_OBJ);
     //en una linea se hace lo que en las dos comentadas
@@ -20,7 +42,7 @@
 
 <h1>CRUD<span class="subtitulo">Create Read Update Delete</span></h1>
 
-  <table width="50%" border="0" align="center">
+  <table >
     <tr >
       <td class="primera_fila">Id</td>
       <td class="primera_fila">Nombre</td>
@@ -39,8 +61,8 @@
       <td><?php echo $persona->nombre?></td>
       <td><?php echo $persona->apellido?></td>
       <td><?php echo $persona->direccion?></td>
- 
-      <td class="bot"><input type='button' name='del' id='del' value='Borrar'></td>
+ <!-- NOTA: SENSIBLE a mAyÚsCuLaS, 'id' != 'ID' -->
+      <td class="bot"><a href="borrar.php?id=<?php echo $persona->id?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
       <td class='bot'><input type='button' name='up' id='up' value='Actualizar'></td>
     </tr> 
     <?php 

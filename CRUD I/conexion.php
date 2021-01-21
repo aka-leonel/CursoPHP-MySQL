@@ -10,8 +10,7 @@
         
     } catch (Exception $e) {
         die("Error ".  $e->getMessage() . "<br>");
-        echo "Linea del error: " . $e->getLine() . "<br>";
-        
+        echo "Linea del error: " . $e->getLine() . "<br>";      
         
     }
 
