@@ -18,7 +18,7 @@ table{
 <body>
 
 <?php 
-    //lo tipeo xq no conecta:(
+    //lo tipeo xq no conecta :(
     //include 'conexion.php';
 try {
     
@@ -63,7 +63,7 @@ try {
       <td><?php echo $persona->direccion?></td>
  <!-- NOTA: SENSIBLE a mAyÚsCuLaS, 'id' != 'ID' -->
       <td class="bot"><a href="borrar.php?id=<?php echo $persona->id?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
-      <td class='bot'><input type='button' name='up' id='up' value='Actualizar'></td>
+      <td class='bot'><a href="editar.php?id=<?php echo $persona->id?>&nom=<?php echo $persona->nombre?>&ape=<?php echo $persona->apellido?>&dir=<?php echo$persona->direccion?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
     </tr> 
     <?php 
     endforeach;
