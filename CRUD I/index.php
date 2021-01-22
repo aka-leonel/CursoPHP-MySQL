@@ -38,10 +38,27 @@ try {
     //$registros=$conexion->fetchAll(PDO::FETCH_OBJ);
     //en una linea se hace lo que en las dos comentadas
     $registros=$base->query("SELECT * FROM datos_usuarios")->fetchAll(PDO::FETCH_OBJ);
+    
+    
+    if(isset($_POST["cr"])){
+        
+        $nombre = $_POST["Nom"];
+        $apellido =$_POST["Ape"];
+        $direccion = $_POST["Dir"];
+        
+        $sql = "INSERT INTO datos_usuarios (nombre, apellido, direccion) VALUES (:nom, :ape, :dir)";
+        
+        $resultado = $base->prepare($sql);
+        
+        $resultado->execute(array(":nom"=>$nombre, ":ape"=>$apellido, ":dir"=>$direccion));
+        
+        header("Location:index.php");
+    }
 ?>
 
 <h1>CRUD<span class="subtitulo">Create Read Update Delete</span></h1>
 
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <table >
     <tr >
       <td class="primera_fila">Id</td>
@@ -68,10 +85,7 @@ try {
     <?php 
     endforeach;
     ?>
-    
-    
-    
-    
+  
           
 	<tr>
 	<td></td>
@@ -80,7 +94,7 @@ try {
       <td><input type='text' name=' Dir' size='10' class='centrado'></td>
       <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar'></td></tr>    
   </table>
-
+</form>
 <p>&nbsp;</p>
 </body>
 </html>

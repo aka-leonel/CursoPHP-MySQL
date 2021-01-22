@@ -1305,5 +1305,75 @@ try {
 
 -----------------------------------------
 VIDEO 70 CRUD I
+folder: crud I
+-----------------------------------------
+VIDEO 71 CRUD II
+folder: crud II
+
+//mirate esta
+//permite meter html dentro del bucle escrito en php
+<?php 
+	foreach ($registros as $persona):?>	
+   	<tr>
+      <td> </td>
+      <td></td>
+      <td></td>
+      <td></td>
+ 
+      <td class="bot"><input type='button' name='del' id='del' value='Borrar'></td>
+      <td class='bot'><input type='button' name='up' id='up' value='Actualizar'></td>
+    </tr> 
+    <?php 
+    endforeach;
+    ?>
+
+////////////////////
+
+Observacion: tener en cuanta que PHP se pone sensible a maYuScuLAs
+
+
+--------------------
+VIDEO 72 CRUD III
+continuacion
+Queda plateada la dificultad entre $_GET y $_POST
+Con el primero se llega a la pagina editar.php y con el segundo se toman las modificaciones hechas y se envian. Queda para elproximo el evitar el conflicto entre estos do metodos y la finalizacion de la actividad. ARRRRGHHHH basooooora
+----------------------------
+Vídeo 73 CRUD IV. 
+
+CRUD IV: Fuinciona todo
+Crea, Readea, Updatea y Deletea
+Bello. Funciona muy bien.
+
+-------------------------
+
+Video 74 Paginacion I
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------
+**********
+----------
+		:restan
+		-------
+paginacion 74-77
+MVC 78-82
+subir imagenes al servidor 83-85
+imagenes en BBDD. campos blob 86-87
+enviar emails 88
+creacion de blog 89-92
+blog con PO 93-96
+perfil de usuario y menus 97
+cierre 98
+
 
 

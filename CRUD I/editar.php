@@ -18,11 +18,34 @@
 <h1>ACTUALIZAR</h1>
 
 <?php 
+    
     include 'conexion.php';
-    $id = $_GET["id"];
-    $nom = $_GET["nom"];
-    $ape = $_GET["ape"];
-    $dir = $_GET["dir"]; 
+ 
+    
+    if(!isset($_POST["bot_actualizar"])){
+            
+        $id = $_GET["id"];
+        $nom = $_GET["nom"];
+        $ape = $_GET["ape"];
+        $dir = $_GET["dir"];
+    
+    }else {
+        
+        $id = $_POST["id"];
+        $nom = $_POST["nom"];
+        $ape = $_POST["ape"];
+        $dir = $_POST["dir"];
+        
+        
+        $sql= "UPDATE datos_usuarios SET nombre=:miNom, apellido=:miApe, direccion=:miDir WHERE id=:miId";
+        
+        $resultado=$base->prepare($sql);
+        
+        $resultado->execute(array(":miId"=>$id, ":miNom"=>$nom, ":miApe"=>$ape, ":miDir"=>$dir));
+        
+        header("Location:index.php");
+        
+    }
 ?>
 
 
