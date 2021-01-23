@@ -1348,7 +1348,23 @@ Bello. Funciona muy bien.
 
 Video 74 Paginacion I
 
+folder: paginacion
 
+
+
+-----------------------
+
+VIDEO 75 Paginacion II
+20:33 23/1/2021
+
+folder:paginacion incompleto
+
+21:02 23/1/2021
+-----------------------
+
+VIDEO 76  Paginacion III
+21:11 23/1/2021
+Terminamos la paginacion
 
 
 
