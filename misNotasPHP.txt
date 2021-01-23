@@ -1373,9 +1373,26 @@ Se integró la paginacion al CRUD I
 ---------------------------
 
 VIDEO 78 MODELO VISTA CONTROLADOR I
-MVC
 
+MVC, que es?
+*Es un patrón de diseño de aplicaciones que separa la lógica del programa de la interfaz de usuario.
 
+Ventajas?
+*mas funcional
+*facil de mantener
+*mas escalable
+
+Como separar la logica de la interfaz?
+*Dividiendo la aplicacion en tres partes o "capas":
+
+-MODEL: clases y metodos que comunican con la BBDD
+-VIEW: todo lo referenta a la interfaz que se muestra al usuario
+-CONTROLLER: intermediario entre la vista y el modelo.
+
+folder: MVC
+
+----------------------
+VIDEO 79
 
 
 
