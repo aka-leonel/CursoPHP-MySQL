@@ -1365,8 +1365,15 @@ folder:paginacion incompleto
 VIDEO 76  Paginacion III
 21:11 23/1/2021
 Terminamos la paginacion
+-------------------------
 
+VIDEO 77 Paginacion IV
+Se integró la paginacion al CRUD I
+22:05 23/1/2021
+---------------------------
 
+VIDEO 78 MODELO VISTA CONTROLADOR I
+MVC
 
 
 

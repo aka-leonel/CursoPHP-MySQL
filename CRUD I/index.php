@@ -33,11 +33,40 @@ try {
     echo "Linea del error: " . $e->getLine() . "<br>";
     
 }
+
+    //--------------------paginacion-------//
     
+    //esta variable determina la cantidad de registros a mostrar por pagina
+    $registrosPorPagina=2;
+    
+    if(isset($_GET["pagina"])){
+        if ($_GET["pagina"]==1) {
+            header("Location:index.php");
+        } else {
+            $pagina = $_GET["pagina"];
+        }
+    } else{
+        //pagina en la que se enra por primera vez al cargar el sitio
+        $pagina=1;
+    }
+    
+    $empezar_desde=($pagina - 1) * $registrosPorPagina;
+    $sql_total = "SELECT * FROM datos_usuarios";
+    
+    $resultado= $base->prepare($sql_total);
+    
+    $resultado->execute(array());
+    
+    $numeroDeFilas=$resultado->rowCount();
+    
+    //totalPag = redondear( numFilas / regXpagina )
+    $totalPaginas = ceil($numeroDeFilas / $registrosPorPagina);
+
+    //--------------------fin paginacion-------------------
     //$conexion=$base->query("SELECT * FROM datos_usuarios");
     //$registros=$conexion->fetchAll(PDO::FETCH_OBJ);
     //en una linea se hace lo que en las dos comentadas
-    $registros=$base->query("SELECT * FROM datos_usuarios")->fetchAll(PDO::FETCH_OBJ);
+    $registros=$base->query("SELECT * FROM datos_usuarios LIMIT $empezar_desde, $registrosPorPagina")->fetchAll(PDO::FETCH_OBJ);
     
     
     if(isset($_POST["cr"])){
@@ -93,8 +122,21 @@ try {
       <td><input type='text' name='Ape' size='10' class='centrado'></td>
       <td><input type='text' name=' Dir' size='10' class='centrado'></td>
       <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar'></td></tr>    
+  	<tr><td>
+  		<?php 
+        //-----------------PAGINACION--------------------------//
+        for ($i = 1; $i <= $totalPaginas; $i++) {
+            
+            echo "<a href='?pagina=" . $i . "'>" . $i . "</a> " ; 
+        }
+        ?>          		
+  	</td></tr>
+  	
   </table>
+  
 </form>
+
+
 <p>&nbsp;</p>
 </body>
 </html>

@@ -14,10 +14,14 @@ try {
     $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $base->exec("SET CHARACTER SET UTF8");
+   
+    
+    
+    
+    
+    
     //esta variable determina la cantidad de registros a mostrar por pagina
     $registrosPorPagina=3;
- 
-    
     
     if(isset($_GET["pagina"])){
         if ($_GET["pagina"]==1) {
