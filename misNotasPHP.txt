@@ -1393,10 +1393,14 @@ folder: MVC
 
 ----------------------
 VIDEO 79  MVC II
-
+Se trabaja con PDO
 Primeros archivos.
 Folder: model: Conectar.php, Producstos_modelo.php
 
+---------------------
+VIDEO 80  MVC III
+
+se termina de elaborar el primer ejemplo MVC básico
 
 
 

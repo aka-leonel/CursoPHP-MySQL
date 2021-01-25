@@ -8,7 +8,7 @@ class Productos_modelo{
   //constructor
   public function __construct(){
       //conecta con BBDD
-      require_once "Conectar.php";
+      require_once "model/Conectar.php";
       
       $this->db=Conectar::conexion();
       //crea un array de producos
