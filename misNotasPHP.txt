@@ -1392,7 +1392,10 @@ Como separar la logica de la interfaz?
 folder: MVC
 
 ----------------------
-VIDEO 79
+VIDEO 79  MVC II
+
+Primeros archivos.
+Folder: model: Conectar.php, Producstos_modelo.php
 
 
 
