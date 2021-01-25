@@ -8,7 +8,9 @@
 </head>
 
 <body>
-
+<?php 
+    require 'model/paginacion.php';
+?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <table >
     <tr >
@@ -30,8 +32,8 @@
       <td><?php echo $persona["APELLIDO"]?></td>
       <td><?php echo $persona["EDAD"]?></td>
  <!-- NOTA: SENSIBLE a mAyÚsCuLaS, 'id' != 'ID' -->
-      <td class="bot"><a href="borrar.php?id=<?php echo $persona->id?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
-      <td class='bot'><a href="editar.php?id=<?php echo $persona->id?>&nom=<?php echo $persona->nombre?>&ape=<?php echo $persona->apellido?>&dir=<?php echo$persona->direccion?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
+      <td class="bot"><a href="borrar.php?id=<?php echo $persona["ID"]?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
+      <td class='bot'><a href="editar.php?id=<?php echo $persona["ID"]?>&nom=<?php echo $persona["NOMBRE"]?>&ape=<?php echo $persona["APELLIDO"]?>&dir=<?php echo$persona["EDAD"]?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
     </tr> 
     <?php 
     endforeach;
@@ -47,10 +49,12 @@
   	<tr><td>
   		<?php 
         //-----------------PAGINACION--------------------------//
-        for ($i = 1; $i <= $totalPaginas; $i++) {
+        
+         for ($i = 1; $i <= $totalPaginas; $i++) {
             
             echo "<a href='?pagina=" . $i . "'>" . $i . "</a> " ; 
         }
+        
         ?>          		
   	</td></tr>
   	

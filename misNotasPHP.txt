@@ -1405,15 +1405,19 @@ se termina de elaborar el primer ejemplo MVC básico
 -------------------
 
 VIDEO 81  MVC IV
+
 *CRUD se pasa a MVC
+folder: "CRUD en MVC"
 No esta completo ni funciona, falta corregir detalles
 
 -----------------
 VIDEO 82 MVC V
 
+El CRUD con MVC ya funciona
 
+--------------------
 
-
+VIDEO 83
 
 
 ----------
