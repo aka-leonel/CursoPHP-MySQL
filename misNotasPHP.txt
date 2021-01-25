@@ -1402,6 +1402,15 @@ VIDEO 80  MVC III
 
 se termina de elaborar el primer ejemplo MVC básico
 
+-------------------
+
+VIDEO 81  MVC IV
+*CRUD se pasa a MVC
+No esta completo ni funciona, falta corregir detalles
+
+-----------------
+VIDEO 82 MVC V
+
 
 
 
@@ -1412,7 +1421,6 @@ se termina de elaborar el primer ejemplo MVC básico
 ----------
 		:restan
 		-------
-paginacion 74-77
 MVC 78-82
 subir imagenes al servidor 83-85
 imagenes en BBDD. campos blob 86-87
