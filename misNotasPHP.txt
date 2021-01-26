@@ -1418,8 +1418,40 @@ El CRUD con MVC ya funciona
 --------------------
 
 VIDEO 83
+Subir imagene al servidor
+folder: imagenes_servidor
+files
+//index.php
+<form action="datosImagen.php" method="post" enctype="multipart/form-data">
 
+    <table>
+    <tr><td>
+    <label for="imagen">Imagen:</label></td>
+    
+    <td><input type="file" name="imagen" size="20"></td></tr>
+    
+    <tr><td colspan="2" style="text-align:center"><input type="submit" value="enviar imagen"></td></tr>    
+    </table>
+</form>
 
+//datosImage.php
+<?php
+
+//recibimos los datos de la imagen
+//$_FILES["nombreArchivo"][name || type || size || tmp_name || error]
+
+$nombre_imagen =$_FILES["imagen"]["name"];
+$tipo_imagen = $_FILES["imagen"]["type"];
+$tamanio_imagen =$_FILES["imagen"]["size"];
+
+//ruta de la carpeta destino en servidor
+$carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/cursoPHP/uploads/';
+//movewmos la imagen del directorio temporal al dir elegido
+move_uploaded_file($_FILES['imagen']['tmp_name'], $carpeta_destino.$nombre_imagen);
+
+?>
+
+-------------------------------------
 ----------
 **********
 ----------
